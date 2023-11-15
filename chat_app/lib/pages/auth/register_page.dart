@@ -7,7 +7,7 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 
 class RegisterPage extends StatefulWidget {
-  const RegisterPage({Key? key}) : super(key: key);
+  const RegisterPage({super.key});
 
   @override
   State<RegisterPage> createState() => _RegisterPageState();
@@ -52,7 +52,7 @@ class _RegisterPageState extends State<RegisterPage> {
                       TextFormField(
                           decoration: textInputDecoration.copyWith(
                               labelText: "Email",
-                              prefixIcon: Icon(
+                              prefixIcon: const Icon(
                                 Icons.email,
                                 color: Colors.black,
                               )),
@@ -76,7 +76,7 @@ class _RegisterPageState extends State<RegisterPage> {
                       TextFormField(
                           decoration: textInputDecoration.copyWith(
                               labelText: "Full Name",
-                              prefixIcon: Icon(
+                              prefixIcon: const Icon(
                                 Icons.person,
                                 color: Colors.black,
                               )),
@@ -97,7 +97,7 @@ class _RegisterPageState extends State<RegisterPage> {
                         obscureText: true,
                         decoration: textInputDecoration.copyWith(
                             labelText: "Password",
-                            prefixIcon: Icon(
+                            prefixIcon: const Icon(
                               Icons.lock,
                               color: Colors.black,
                             )),
@@ -121,7 +121,7 @@ class _RegisterPageState extends State<RegisterPage> {
                         width: double.infinity,
                         child: ElevatedButton(
                           style: ElevatedButton.styleFrom(
-                            primary: Colors.teal,
+                            backgroundColor: Colors.teal,
                             elevation: 0,
                             shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(30)),
@@ -175,6 +175,7 @@ class _RegisterPageState extends State<RegisterPage> {
           await HelperFunctions.saveUserLoggedInStatus(true);
           await HelperFunctions.saveUserEmailSF(email);
           await HelperFunctions.saveUserNameSF(fullName);
+          // ignore: use_build_context_synchronously
           nextScreenReplace(context, const HomePage());
         } else {
           setState(() {

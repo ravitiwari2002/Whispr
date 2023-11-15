@@ -10,7 +10,7 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 
 class LoginPage extends StatefulWidget {
-  const LoginPage({Key? key}) : super(key: key);
+  const LoginPage({super.key});
 
   @override
   State<LoginPage> createState() => _LoginPageState();
@@ -30,7 +30,7 @@ class _LoginPageState extends State<LoginPage> {
         backgroundColor: Colors.teal,
       ),
       body: _isLoading
-          ? Center(
+          ? const Center(
               child: CircularProgressIndicator(color: Colors.grey),
             )
           : SingleChildScrollView(
@@ -56,7 +56,7 @@ class _LoginPageState extends State<LoginPage> {
                       TextFormField(
                           decoration: textInputDecoration.copyWith(
                               labelText: "Email",
-                              prefixIcon: Icon(
+                              prefixIcon: const Icon(
                                 Icons.email,
                                 color: Colors.black,
                               )),
@@ -79,7 +79,7 @@ class _LoginPageState extends State<LoginPage> {
                         obscureText: true,
                         decoration: textInputDecoration.copyWith(
                             labelText: "Password",
-                            prefixIcon: Icon(
+                            prefixIcon: const Icon(
                               Icons.lock,
                               color: Colors.black,
                             )),
@@ -103,7 +103,7 @@ class _LoginPageState extends State<LoginPage> {
                         width: double.infinity,
                         child: ElevatedButton(
                           style: ElevatedButton.styleFrom(
-                            primary: Colors.teal,
+                            backgroundColor: Colors.teal,
                             elevation: 0,
                             shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(30)),
@@ -162,6 +162,7 @@ class _LoginPageState extends State<LoginPage> {
           await HelperFunctions.saveUserEmailSF(email);
           await HelperFunctions.saveUserNameSF(snapshot.docs[0]['fullName']);
 
+          // ignore: use_build_context_synchronously
           nextScreenReplace(context, const HomePage());
         } else {
           setState(() {

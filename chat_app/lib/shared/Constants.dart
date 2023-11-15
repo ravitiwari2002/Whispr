@@ -1,3 +1,5 @@
+// ignore_for_file: file_names
+
 import 'package:flutter/material.dart';
 
 class Constants {
@@ -5,5 +7,5 @@ class Constants {
   static String apiKey = "AIzaSyB4W-IcGWrssAIkEb0Zp0Y5tmikHHLVNL0";
   static String messagingSenderId = "1044204359770";
   static String projectId = "chatappflutter-93979";
-  final primaryColor = const Color(0x006666);
+  final primaryColor = const Color(0x00006666);
 }

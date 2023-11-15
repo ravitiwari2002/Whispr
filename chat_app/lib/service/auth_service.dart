@@ -8,12 +8,11 @@ class AuthService {
 //login
   Future loginWithEmailandPassword(String email, String password) async {
     try {
+      // ignore: unused_local_variable
       User user = (await firebaseAuth.signInWithEmailAndPassword(
               email: email, password: password))
           .user!;
-      if (user != null) {
-        return true;
-      }
+      return true;
     } on FirebaseAuthException catch (e) {
       return e.message;
     }
@@ -26,11 +25,9 @@ class AuthService {
       User user = (await firebaseAuth.createUserWithEmailAndPassword(
               email: email, password: password))
           .user!;
-      if (user != null) {
-        //call database service to update data
-        await DatabaseService(uid: user.uid).savingUserData(fullName, email);
-        return true;
-      }
+      //call database service to update data
+      await DatabaseService(uid: user.uid).savingUserData(fullName, email);
+      return true;
     } on FirebaseAuthException catch (e) {
       return e.message;
     }

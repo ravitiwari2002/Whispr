@@ -1,3 +1,5 @@
+// ignore_for_file: use_build_context_synchronously
+
 import 'package:chat_app/pages/chat_page.dart';
 import 'package:chat_app/widgets/widgets.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
@@ -8,7 +10,7 @@ import '../../helper/helper_function.dart';
 import '../../service/database_service.dart';
 
 class SearchPage extends StatefulWidget {
-  const SearchPage({Key? key}) : super(key: key);
+  const SearchPage({super.key});
 
   @override
   State<SearchPage> createState() => _SearchPageState();
@@ -96,7 +98,7 @@ class _SearchPageState extends State<SearchPage> {
             ),
           ),
           isLoading
-              ? Center(
+              ? const Center(
                   child: CircularProgressIndicator(color: Colors.teal),
                 )
               : groupList(),

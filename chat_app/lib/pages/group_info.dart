@@ -10,11 +10,10 @@ class GroupInfo extends StatefulWidget {
   final String groupName;
   final String adminName;
   const GroupInfo(
-      {Key? key,
+      {super.key,
       required this.adminName,
       required this.groupName,
-      required this.groupId})
-      : super(key: key);
+      required this.groupId});
 
   @override
   State<GroupInfo> createState() => _GroupInfoState();
@@ -178,9 +177,9 @@ class _GroupInfoState extends State<GroupInfo> {
 
                       title: Text(getName(snapshot.data['members'][index])),
 
-                      subtitle: Text(
+                      subtitle: const Text(
                         "Member",
-                        style: const TextStyle(
+                        style: TextStyle(
                             fontSize: 18, fontWeight: FontWeight.bold),
                       ),
                       //uncomment this to print user id of the people in the chatroom

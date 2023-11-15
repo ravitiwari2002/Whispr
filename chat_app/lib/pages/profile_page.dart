@@ -1,3 +1,5 @@
+// ignore_for_file: use_build_context_synchronously, must_be_immutable
+
 import 'package:chat_app/pages/auth/login_page.dart';
 import 'package:chat_app/pages/home_page.dart';
 import 'package:chat_app/service/auth_service.dart';
@@ -7,8 +9,7 @@ import 'package:flutter/material.dart';
 class ProfilePage extends StatefulWidget {
   String userName = "";
   String email = "";
-  ProfilePage({Key? key, required this.email, required this.userName})
-      : super(key: key);
+  ProfilePage({super.key, required this.email, required this.userName});
 
   @override
   State<ProfilePage> createState() => _ProfilePageState();
@@ -82,8 +83,9 @@ class _ProfilePageState extends State<ProfilePage> {
                       context: context,
                       builder: (context) {
                         return AlertDialog(
-                          title: Text("Logout"),
-                          content: Text("Are you sure you want to logout?"),
+                          title: const Text("Logout"),
+                          content:
+                              const Text("Are you sure you want to logout?"),
                           actions: [
                             IconButton(
                               onPressed: () {

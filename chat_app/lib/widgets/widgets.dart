@@ -9,7 +9,7 @@ const textInputDecoration = InputDecoration(
     borderSide: BorderSide(color: Colors.purple, width: 2),
   ),
   errorBorder: OutlineInputBorder(
-    borderSide: BorderSide(color: Color(0x006666), width: 2),
+    borderSide: BorderSide(color: Color(0x00006666), width: 2),
   ),
 );
 

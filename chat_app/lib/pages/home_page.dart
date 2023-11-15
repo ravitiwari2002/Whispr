@@ -1,3 +1,5 @@
+// ignore_for_file: use_build_context_synchronously
+
 import 'package:chat_app/helper/helper_function.dart';
 import 'package:chat_app/pages/auth/login_page.dart';
 import 'package:chat_app/pages/auth/search_page.dart';
@@ -10,7 +12,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatefulWidget {
-  const HomePage({Key? key}) : super(key: key);
+  const HomePage({super.key});
 
   @override
   State<HomePage> createState() => _HomePageState();
@@ -211,7 +213,7 @@ class _HomePageState extends State<HomePage> {
                   mainAxisSize: MainAxisSize.min,
                   children: [
                     _isLoading == true
-                        ? Center(
+                        ? const Center(
                             child:
                                 CircularProgressIndicator(color: Colors.teal),
                           )
@@ -224,14 +226,16 @@ class _HomePageState extends State<HomePage> {
                             style: const TextStyle(color: Colors.black),
                             decoration: InputDecoration(
                                 enabledBorder: OutlineInputBorder(
-                                    borderSide: BorderSide(color: Colors.teal),
+                                    borderSide:
+                                        const BorderSide(color: Colors.teal),
                                     borderRadius: BorderRadius.circular(20)),
                                 errorBorder: OutlineInputBorder(
                                     borderSide:
                                         const BorderSide(color: Colors.red),
                                     borderRadius: BorderRadius.circular(20)),
                                 focusedBorder: OutlineInputBorder(
-                                    borderSide: BorderSide(color: Colors.teal),
+                                    borderSide:
+                                        const BorderSide(color: Colors.teal),
                                     borderRadius: BorderRadius.circular(20))),
                           ),
                   ],
@@ -241,7 +245,8 @@ class _HomePageState extends State<HomePage> {
                       onPressed: () {
                         Navigator.of(context).pop();
                       },
-                      style: ElevatedButton.styleFrom(primary: Colors.teal),
+                      style: ElevatedButton.styleFrom(
+                          backgroundColor: Colors.teal),
                       child: const Text(
                         "CANCEL",
                       )),
@@ -265,7 +270,8 @@ class _HomePageState extends State<HomePage> {
                             "Chatroom created successfully");
                       }
                     },
-                    style: ElevatedButton.styleFrom(primary: Colors.teal),
+                    style:
+                        ElevatedButton.styleFrom(backgroundColor: Colors.teal),
                     child: const Text("CREATE"),
                   ),
                 ]);
@@ -298,7 +304,7 @@ class _HomePageState extends State<HomePage> {
             return noGroupWidget();
           }
         } else {
-          return Center(
+          return const Center(
             child: CircularProgressIndicator(color: Colors.teal),
           );
         }
