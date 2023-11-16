@@ -1,4 +1,4 @@
-*Whispr - Hear the Whispers* 
+## *Whispr - Hear the Whispers* 
 
 Whispr is an application designed to foster anonymous connections, allowing users to engage in conversations with random individuals in secure chatrooms. This platform provides a unique opportunity for spontaneous interactions and the exchange of diverse perspectives, all while maintaining the user’s anonymity.
 
@@ -13,8 +13,7 @@ The following functionalities are implemented:
 -  Option for users to exit chatrooms at their discretion.
 
 
-https://github.com/ravitiwari2002/Whispr/assets/81186121/555ac6cd-e501-4b35-bb4d-d47fe5554cde
-
+https://github.com/ravitiwari2002/Whispr/assets/81186121/9d38d4ba-5d6e-45db-9cf3-2d3479f060f0
 
 
 ## License
