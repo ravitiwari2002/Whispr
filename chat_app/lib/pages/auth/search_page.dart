@@ -416,8 +416,8 @@ class _SearchPageState extends State<SearchPage> with TickerProviderStateMixin {
           decoration: BoxDecoration(
             gradient: LinearGradient(
               colors: [
-                Color(0xFF8B5CF6).withOpacity(0.8),
-                Color(0xFF3B82F6).withOpacity(0.8),
+                const Color(0xFF8B5CF6).withOpacity(0.8),
+                const Color(0xFF3B82F6).withOpacity(0.8),
               ],
               begin: Alignment.topLeft,
               end: Alignment.bottomRight,

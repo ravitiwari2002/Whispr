@@ -439,16 +439,16 @@ class _ProfilePageState extends State<ProfilePage>
             _showLogoutDialog();
           },
           borderRadius: BorderRadius.circular(16),
-          child: Row(
+          child: const Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              const Icon(
+              Icon(
                 Icons.logout_rounded,
                 color: Colors.red,
                 size: 24,
               ),
-              const SizedBox(width: 12),
-              const Text(
+              SizedBox(width: 12),
+              Text(
                 "Logout",
                 style: TextStyle(
                   fontSize: 16,

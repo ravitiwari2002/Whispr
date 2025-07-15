@@ -7,6 +7,7 @@ import 'package:chat_app/pages/profile_page.dart';
 import 'package:chat_app/service/auth_service.dart';
 import 'package:chat_app/service/database_service.dart';
 import 'package:chat_app/widgets/group_tile.dart';
+import 'package:chat_app/pages/chat_page.dart';
 import 'package:chat_app/widgets/widgets.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -288,8 +289,8 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                 return Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Padding(
-                      padding: const EdgeInsets.only(bottom: 16),
+                    const Padding(
+                      padding: EdgeInsets.only(bottom: 16),
                       child: Text(
                         "Your Chatrooms",
                         style: TextStyle(
@@ -353,7 +354,16 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
         child: InkWell(
           onTap: () {
             HapticFeedback.lightImpact();
-            // Navigate to chat page
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => ChatPage(
+                  groupId: groupId,
+                  groupName: groupName,
+                  userName: userName,
+                ),
+              ),
+            );
           },
           borderRadius: BorderRadius.circular(16),
           child: Padding(
@@ -374,7 +384,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                     ),
                     borderRadius: BorderRadius.circular(12),
                   ),
-                  child: Icon(
+                  child: const Icon(
                     Icons.group_rounded,
                     color: Colors.white,
                     size: 24,
@@ -850,7 +860,10 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                             child: Material(
                               color: Colors.transparent,
                               child: InkWell(
-                                onTap: () => Navigator.pop(context),
+                                onTap: () {
+                                  FocusScope.of(context).unfocus();
+                                  Navigator.pop(context);
+                                },
                                 borderRadius: BorderRadius.circular(12),
                                 child: const Center(
                                   child: Text(
@@ -882,6 +895,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                               color: Colors.transparent,
                               child: InkWell(
                                 onTap: () {
+                                  FocusScope.of(context).unfocus();
                                   if (groupName.isNotEmpty) {
                                     setState(() {
                                       _isLoading = true;
@@ -905,6 +919,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                                         Colors.green,
                                         "Chatroom created successfully",
                                       );
+                                      groupName = "";
                                     });
                                   }
                                 },

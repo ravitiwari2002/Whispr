@@ -1,6 +1,5 @@
 import 'package:chat_app/pages/group_info.dart';
 import 'package:chat_app/service/database_service.dart';
-import 'package:chat_app/widgets/message_tile.dart';
 import 'package:chat_app/widgets/widgets.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
